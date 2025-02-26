@@ -1,0 +1,27 @@
+<body>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow-sm" [ngClass]="{ 'on-sale': product.onSale }">
+                    
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                            aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" role="img" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+                            dy=".3em">Thumbnail</text>
+                        </svg>
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">Precio: ${{ product.price }}</p>
+                            <p class="card-text" *ngIf="product.inStock; else outOfStock">Disponible</p>
+                            <ng-template #outOfStock><p class="text-danger">Agotado</p></ng-template>
+                            <button class="btn btn-primary">Ver Detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
